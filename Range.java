@@ -15,7 +15,7 @@ public class Range implements IntegerSequence{
   }
 
   public int length() {
-    return e-s+1;
+    return end-start+1;
   }
 
   //When current is no longer a valid element in the range, it should return false.
@@ -27,12 +27,12 @@ public class Range implements IntegerSequence{
   //This will return the current value, it will also increase current value by 1.
   //e.g.  if current is 5. This will make current 6, and return 5.
   public int next() {
-    if (hasNext) {
+    if (hasNext()) {
       int temp = current;
       current++;
       return temp;
     } else {
-      throw new NoSuchElementException());
+      throw new NoSuchElementException();
     }
   }
 
