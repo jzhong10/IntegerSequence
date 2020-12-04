@@ -13,6 +13,9 @@ public class Tester {
           }
         }
         System.out.println();
-        //System.out.println(r.hasNext());
+        //System.out.println(r.next());
+        r.reset();
+        System.out.println(r.next());
+
     }
 }
