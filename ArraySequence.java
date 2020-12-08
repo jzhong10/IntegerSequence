@@ -2,7 +2,6 @@ import java.util.NoSuchElementException;
 public class ArraySequence implements IntegerSequence{
   private int currentIndex;
   private int[] data;
-  private int start,current,end;
 
   /*Construct the sequence by copying values from the
     other array into the data array*/
@@ -11,9 +10,7 @@ public class ArraySequence implements IntegerSequence{
     for (int i = 0; i<other.length; i++) {
       data[i] = other[i];
     }
-    start = 0;
-    current = start;
-    end = other.length;
+    currentIndex = 0;
   }
 
   public ArraySequence(IntegerSequence otherseq) {
@@ -23,9 +20,8 @@ public class ArraySequence implements IntegerSequence{
         data[i] = otherseq.next();
       }
     }
-    start = 0;
-    current = start;
-    end = otherseq.length();
+    otherseq.reset();
+    currentIndex = 0;
   }
 
   public int length() {
@@ -33,17 +29,17 @@ public class ArraySequence implements IntegerSequence{
   }
 
   public void reset() {
-    current = start;
+    currentIndex = 0;
   }
 
   public boolean hasNext() {
-    return current<end;
+    return currentIndex < this.data.length;
   }
 
   public int next() {
     if (hasNext()) {
-      int temp = current;
-      current++;
+      int temp = currentIndex;
+      currentIndex++;
       return data[temp];
     } else {
       throw new NoSuchElementException();

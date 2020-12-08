@@ -1,5 +1,6 @@
 public class Tester {
     public static void main(String[] args) {
+      /*
         Range x = new Range(1, 5);
         System.out.println(x.length());
         Range y = new Range(14, 29);
@@ -26,7 +27,7 @@ public class Tester {
         }
 
         System.out.println();
-        
+
         r = new Range(10,20);
         as = new ArraySequence(r);
 
@@ -35,5 +36,27 @@ public class Tester {
           System.out.print(as.next()+", ");
         }
         System.out.println();
+*/
+        IntegerSequence r1 = new Range(-20,50);
+        ArraySequence ar1 = new ArraySequence(r1);
+        //System.out.println(ar1.length());
+        System.out.println(r1.length());
+        System.out.println();
+        // /r1.reset();
+        System.out.println(r1.next());
+        //System.out.println(ar1.length());
+        System.out.println(r1.length());
+        System.out.println();
+
+        // /ArraySequence ar1 = new ArraySequence(r1);
+
+        IntegerSequence r = new Range(10,20);
+        IntegerSequence as = new ArraySequence(r);
+
+        System.out.println("ArraySequence(seq):");
+        while(r.hasNext() == as.hasNext() && r.hasNext()!=false) {
+          System.out.print(as.next() + " , " + r.next() + " ; ");
+        }
+
     }
 }
